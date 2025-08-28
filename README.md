@@ -1,51 +1,49 @@
-```markdown
 # Quad-Swarm-RL — Reproduction & Robustness Extensions
 
-**Forked from and adapted from:** https://github.com/Zhehui-Huang/quad-swarm-rl
+**Forked and adapted from:** [https://github.com/Zhehui-Huang/quad-swarm-rl](https://github.com/Zhehui-Huang/quad-swarm-rl)
 
 This repository reproduces the ICRA’24 work *Collision Avoidance and Navigation for a Quadrotor Swarm Using End-to-End Deep Reinforcement Learning* and **extends it** with systematic robustness studies:
-- Scaling robots `N`, neighbor cap `K`, obstacle density `ρ`, obstacle diameter `d_obs`
-- Stress tests up to `N=48`, `K=47` in cluttered rooms
-- Same policy class: IPPO + multi-head attention + SDF obstacle encoding; **low-level thrust control**, fully decentralized (no inter-agent comms)
 
-> Scope: outcome of a Directed Reading Course — emphasis on **reproducibility, stress testing, and analysis**, not proposing a new algorithm.
+* Scaling robots `N`, neighbor cap `K`, obstacle density `ρ`, obstacle diameter `d_obs`
+* Stress tests up to `N=48`, `K=47` in cluttered rooms
+* Same policy class: IPPO + multi-head attention + SDF obstacle encoding; **low-level thrust control**, fully decentralized (no inter-agent comms)
+
+> **Scope:** outcome of a Directed Reading Course — emphasis on **reproducibility, stress testing, and analysis**, not proposing a new algorithm.
 
 ---
 
 ## Repository Layout
 
 ```
-
-gym\_art/                         # quadrotor dynamics, collisions, obstacles
-swarm\_rl/                        # training entry points, models, wrappers
-paper/                           # plotting helpers and final figures
-scripts/                         # runners I added (baseline, ablations, scaling)
-├─ fig3\_baseline.sh
-├─ fig3\_ours\_full.sh
-├─ fig3\_no\_replay.sh
-├─ fig3\_no\_attention.sh
-├─ scale\_agents\_X.sh           # N ∈ {8,16,32}
-├─ scale\_neighbor\_K.sh         # K ∈ {1,2,6,16,31}
-├─ scale\_density\_D.sh          # ρ ∈ {20,40,60,80}%
-├─ scale\_size\_S.sh             # d\_obs ∈ {0.6,0.7,0.8,0.85} m
-└─ train\_dir/                  # training outputs (checkpoints, logs) — git-ignored
-
-````
+.
+├─ gym_art/                  # quadrotor dynamics, collisions, obstacles
+├─ swarm_rl/                 # training entry points, models, wrappers
+├─ paper/                    # plotting helpers and final figures
+├─ scripts/                  # runners I added (baseline, ablations, scaling)
+│  ├─ fig3_baseline.sh
+│  ├─ fig3_ours_full.sh
+│  ├─ fig3_no_replay.sh
+│  ├─ fig3_no_attention.sh
+│  ├─ scale_agents_X.sh      # N ∈ {8,16,32}
+│  ├─ scale_neighbor_K.sh    # K ∈ {1,2,6,16,31}
+│  ├─ scale_density_D.sh     # ρ ∈ {20,40,60,80}%
+│  └─ scale_size_S.sh        # d_obs ∈ {0.6,0.7,0.8,0.85} m
+└─ scripts/train_dir/        # training outputs (checkpoints, logs) — git-ignored
+```
 
 ---
 
 ## Environment & Installation
 
-- Python ≥ 3.10 (tested with 3.11)
-- PyTorch, NumPy, Numba, Matplotlib, etc.
+* Python ≥ 3.10 (tested with 3.11)
+* PyTorch, NumPy, Numba, Matplotlib, etc.
 
 ```bash
 pip install -e .
 # If PyTorch is missing, install a wheel from https://pytorch.org
-````
+```
 
-> Note: `scripts/train_dir/` and `*.pth` are excluded by `.gitignore` to avoid pushing large artifacts.
-
+> **Note:** `scripts/train_dir/` and `*.pth` are excluded by `.gitignore` to avoid pushing large artifacts.
 > macOS/Apple Silicon: CPU/MPS supported; throughput is lower than discrete GPUs.
 
 ---
@@ -105,7 +103,4 @@ Please cite their paper when using this repository.
 
 ## License
 
-Follows the original repository’s license. Retain the original LICENSE and attribution when redistributing.
-
-```
-```
+Follows the original repository’s license. Retain the original `LICENSE` and attribution when redistributing.
