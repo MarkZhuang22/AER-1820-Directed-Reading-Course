@@ -2,13 +2,14 @@
 
 **Forked and adapted from:** [https://github.com/Zhehui-Huang/quad-swarm-rl](https://github.com/Zhehui-Huang/quad-swarm-rl)
 
+**Course context:** AER 1820 Directed Reading Course  
 This repository reproduces the ICRA’24 work *Collision Avoidance and Navigation for a Quadrotor Swarm Using End-to-End Deep Reinforcement Learning* and **extends it** with systematic robustness studies:
 
-* Scaling robots `N`, neighbor cap `K`, obstacle density `ρ`, obstacle diameter `d_obs`
-* Stress tests up to `N=48`, `K=47` in cluttered rooms
-* Same policy class: IPPO + multi-head attention + SDF obstacle encoding; **low-level thrust control**, fully decentralized (no inter-agent comms)
+- Scaling robots `N`, neighbor cap `K`, obstacle density `ρ`, obstacle diameter `d_obs`
+- Stress tests up to `N=48`, `K=47` in cluttered rooms
+- Same policy class: IPPO + multi-head attention + SDF obstacle encoding; **low-level thrust control**, fully decentralized (no inter-agent comms)
 
-> **Scope:** outcome of a Directed Reading Course — emphasis on **reproducibility, stress testing, and analysis**, not proposing a new algorithm.
+> **Scope:** outcome of the **AER 1820 Directed Reading Course** — emphasis on **reproducibility, stress testing, and analysis**, not proposing a new algorithm.
 
 ---
 
